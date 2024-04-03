@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color-picker</title>
+    <style>
+        body {
+            font-family: cursive;
+        }
+
+        .colorFinal {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <h2>Red</h2>
+        <input type="range" value="128" min="0" max="255" name="" id="red">
+        <h2>Green</h2>
+        <input type="range" value="128" min="0" max="255" name="" id="green">
+        <h2>Blue</h2>
+        <input type="range" value="128" min="0" max="255" name="" id="blue">
+    </section>
+
+    <div class="colorFinal"></div>
+    <span class="codigoColor"></span>
+
+
+    <script>
+
+        const inputs = document.getElementsByTagName("input"),
+            colorFinal = document.querySelector('.colorFinal'),
+            codigoColor = document.querySelector('.codigoColor');
+
+        let color = () => {
+            let red = inputs[0].value,
+                green = inputs[1].value,
+                blue = inputs[2].value,
+                colorMostrar = `rgb(${red}, ${green}, ${blue})`;
+            colorFinal.style.backgroundColor = colorMostrar;
+            codigoColor.textContent = colorMostrar;
+        };
+
+        inputs[0].addEventListener("input", color);
+        inputs[1].addEventListener("input", color);
+        inputs[2].addEventListener("input", color);
+
+        color();
+
+    </script>
+
+</body>
+
+</html>
